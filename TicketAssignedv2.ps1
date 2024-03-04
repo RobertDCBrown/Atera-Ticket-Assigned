@@ -2,7 +2,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-$AutoStart = 0     #Set to 1 to run on launch
+$AutoStart = 1     #Set to 1 to run on launch
 
 #### Definitions ####
 $Version = "2.0.0"
@@ -97,9 +97,10 @@ Function SendText{
         [String]$textBody
     )
     ### Send Text Message ###
-    $sid = "ACcc6067e86a2c2c7f83ccf91e551d6510"     #your sid goes here
-    $token = "2cf970a40f7a638368a4ec4fa7dad5da"     #your token goes here
-    $number = "+17638787808"    # your twilio number
+    $sid = $tb_twilioSID.Text
+    $token = $tb_twilioToken.Text
+    $number = $tb_twilioNum.Text
+    
 
     # Twilio API endpoint and POST params
     $url = "https://api.twilio.com/2010-04-01/Accounts/$sid/Messages.json"
